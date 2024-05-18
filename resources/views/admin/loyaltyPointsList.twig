@@ -1,0 +1,24 @@
+{% extends "plenty::layout" %}
+{% block content %}
+    <h1>Kundenpunkte verwalten</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Kunden ID</th>
+                <th>Punkte</th>
+                <th>Aktionen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for points in pointsList %}
+                <tr>
+                    <td>{{ points.customerId }}</td>
+                    <td>{{ points.points }}</td>
+                    <td>
+                        <a href="{{ url('admin/loyalty/points/edit/' ~ points.customerId) }}">Bearbeiten</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

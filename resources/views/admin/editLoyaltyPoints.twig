@@ -1,0 +1,14 @@
+{% extends "plenty::layout" %}
+{% block content %}
+    <h1>Punkte bearbeiten für Kunde: {{ points.customerId }}</h1>
+    <form method="post" action="{{ url('admin/loyalty/points/update') }}">
+        <input type="hidden" name="customer_id" value="{{ points.customerId }}">
+        <div>
+            <label for="points">Punkte:</label>
+            <input type="number" name="points" id="points" value="{{ points.points }}">
+        </div>
+        <div>
+            <button type="submit">Speichern</button>
+        </div>
+    </form>
+{% endblock %}
