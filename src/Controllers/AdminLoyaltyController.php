@@ -47,17 +47,17 @@ class AdminLoyaltyController extends Controller
 
     public function showSettings(Twig $twig, WebstoreConfigurationRepositoryContract $webstoreConfigRepo)
     {
-        $config = $webstoreConfigRepo->findByPlentyId((int) getenv('PLENTY_ID'));
-        $pointsPerOrderValue = $config->get(0)['pluginSetttings']['LoyaltyProgram.PointsPerOrderValue'] ?? 1;
+        $webstoreConfig = $webstoreConfigRepo->getWebstoreConfig();
+        $pointsPerOrderValue = $webstoreConfig->settingsArray['LoyaltyProgram.PointsPerOrderValue'] ?? 1;
         return $twig->render('LoyaltyProgram::admin.settings', ['pointsPerOrderValue' => $pointsPerOrderValue]);
     }
 
     public function saveSettings(Request $request, WebstoreConfigurationRepositoryContract $webstoreConfigRepo)
     {
         $pointsPerOrderValue = $request->get('pointsPerOrderValue');
-        $config = $webstoreConfigRepo->findByPlentyId((int) getenv('PLENTY_ID'));
-        $config->pluginSetttings['LoyaltyProgram.PointsPerOrderValue'] = $pointsPerOrderValue;
-        $webstoreConfigRepo->update($config);
+        $webstoreConfig = $webstoreConfigRepo->getWebstoreConfig();
+        $webstoreConfig->settingsArray['LoyaltyProgram.PointsPerOrderValue'] = $pointsPerOrderValue;
+        $webstoreConfigRepo->saveWebstoreConfig($webstoreConfig);
         return Response::redirectTo('admin/loyalty/settings');
     }
 }
