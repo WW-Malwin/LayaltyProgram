@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "author": "Your Name",
     "serviceProvider": "LoyaltyProgram\\Providers\\LoyaltyServiceProvider",
-    "settingsHandler": "LoyaltyProgram\\Providers\\SettingsHandler"
+    "settingsHandler": "LoyaltyProgram\\Providers\\SettingsHandler",
+    "menuProvider": "LoyaltyProgram\\Providers\\AdminMenuServiceProvider"
   }
   
