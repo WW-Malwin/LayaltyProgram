@@ -26,7 +26,7 @@ class OrderListener
         $orderValue = $order->amounts[0]->invoiceTotal; // Total order value
 
         // Get points per order value from settings
-        $config = $this->webstoreConfigRepo->findByPlentyId(config()->get('plentyId'));
+        $config = $this->webstoreConfigRepo->findByPlentyId((int) getenv('PLENTY_ID'));
         $pointsPerOrderValue = $config->get(0)['pluginSetttings']['LoyaltyProgram.PointsPerOrderValue'] ?? 1;
 
         // Calculate points based on the order value
