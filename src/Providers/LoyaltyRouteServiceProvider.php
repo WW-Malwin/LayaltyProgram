@@ -18,5 +18,7 @@ class LoyaltyRouteServiceProvider extends RouteServiceProvider
         $router->get('admin/loyalty/points', 'LoyaltyProgram\Controllers\AdminLoyaltyController@showPointsList');
         $router->get('admin/loyalty/points/edit/{customerId}', 'LoyaltyProgram\Controllers\AdminLoyaltyController@editPointsView');
         $router->post('admin/loyalty/points/update', 'LoyaltyProgram\Controllers\AdminLoyaltyController@updatePoints');
+        $router->get('admin/loyalty/settings', 'LoyaltyProgram\Controllers\AdminLoyaltyController@showSettings');
+        $router->post('admin/loyalty/settings', 'LoyaltyProgram\Controllers\AdminLoyaltyController@saveSettings');
     }
 }

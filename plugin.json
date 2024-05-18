@@ -4,6 +4,7 @@
     "type": "backend",
     "version": "1.0.0",
     "author": "Your Name",
-    "serviceProvider": "LoyaltyProgram\\Providers\\LoyaltyServiceProvider"
+    "serviceProvider": "LoyaltyProgram\\Providers\\LoyaltyServiceProvider",
+    "settingsHandler": "LoyaltyProgram\\Providers\\SettingsHandler"
   }
   

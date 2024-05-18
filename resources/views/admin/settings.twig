@@ -1,0 +1,13 @@
+{% extends "plenty::layout" %}
+{% block content %}
+    <h1>Treuepunkte Einstellungen</h1>
+    <form method="post" action="{{ url('admin/loyalty/settings') }}">
+        <div>
+            <label for="pointsPerOrderValue">Punkte pro Bestellwert:</label>
+            <input type="number" name="pointsPerOrderValue" id="pointsPerOrderValue" value="{{ pointsPerOrderValue }}">
+        </div>
+        <div>
+            <button type="submit">Speichern</button>
+        </div>
+    </form>
+{% endblock %}

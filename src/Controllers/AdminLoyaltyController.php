@@ -5,6 +5,7 @@ namespace LoyaltyProgram\Controllers;
 use Plenty\Plugin\Controller;
 use Plenty\Plugin\Http\Request;
 use Plenty\Plugin\Templates\Twig;
+use Plenty\Modules\System\Contracts\WebstoreConfigurationRepositoryContract;
 use LoyaltyProgram\Models\LoyaltyPoints;
 use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
 
@@ -41,5 +42,21 @@ class AdminLoyaltyController extends Controller
             $db->save($loyaltyPoints);
         }
         return redirect()->to('admin/loyalty/points');
+    }
+
+    public function showSettings(Twig $twig, WebstoreConfigurationRepositoryContract $webstoreConfigRepo)
+    {
+        $config = $webstoreConfigRepo->findByPlentyId(config()->get('plentyId'));
+        $pointsPerOrderValue = $config->get(0)['pluginSetttings']['LoyaltyProgram.PointsPerOrderValue'] ?? 1;
+        return $twig->render('LoyaltyProgram::admin.settings', ['pointsPerOrderValue' => $pointsPerOrderValue]);
+    }
+
+    public function saveSettings(Request $request, WebstoreConfigurationRepositoryContract $webstoreConfigRepo)
+    {
+        $pointsPerOrderValue = $request->get('pointsPerOrderValue');
+        $config = $webstoreConfigRepo->findByPlentyId(config()->get('plentyId'));
+        $config->pluginSetttings['LoyaltyProgram.PointsPerOrderValue'] = $pointsPerOrderValue;
+        $webstoreConfigRepo->update($config);
+        return redirect()->to('admin/loyalty/settings');
     }
 }
