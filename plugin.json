@@ -1,0 +1,17 @@
+{
+  "name": "LoyaltyProgram",
+  "namespace": "Loyalty\Program",
+  "author": "Ihr Name",
+  "email": "ihre.email@example.com",
+  "version": "1.0.0",
+  "description": {
+    "de": "Ein Loyalitätsprogramm-Plugin für Plentymarkets.",
+    "en": "A loyalty program plugin for Plentymarkets."
+  },
+  "pluginIcon": "meta/images/plugin_icon.png",
+  "categories": ["marketing"],
+  "require": {
+    "Ceres": "5.0.0"
+  },
+  "serviceProvider": "Loyalty\Program\Providers\LoyaltyServiceProvider"
+}

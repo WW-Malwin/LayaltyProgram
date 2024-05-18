@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "pointsPerPurchase": {
+      "type": "integer",
+      "default": 10,
+      "minimum": 1,
+      "description": {
+        "de": "Punkte pro Einkauf",
+        "en": "Points per purchase"
+      }
+    },
+    "pointsToDiscountRate": {
+      "type": "number",
+      "default": 0.01,
+      "minimum": 0,
+      "description": {
+        "de": "Wechselkurs von Punkten zu Rabatt",
+        "en": "Exchange rate from points to discount"
+      }
+    }
+  }
+}
