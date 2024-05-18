@@ -3,7 +3,7 @@
     "namespace": "LoyaltyProgram",
     "type": "backend",
     "version": "1.0.0",
-    "author": "Your Name",
+    "author": "NaDeco - Malwin",
     "serviceProvider": "LoyaltyProgram\\Providers\\LoyaltyServiceProvider",
     "settingsHandler": "LoyaltyProgram\\Providers\\SettingsHandler",
     "menuProvider": "LoyaltyProgram\\Providers\\AdminMenuServiceProvider"
